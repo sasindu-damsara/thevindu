@@ -1,313 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thevindu Wildlife Expedition / Conservation Archive</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        emerald: {
-                            950: '#021c14',
-                            900: '#06382b',
-                            800: '#0c5c46',
-                            700: '#107c5e',
-                        },
-                        amber: {
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Site Unavailable</title>
     <style>
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
         }
-        h1, h2, h3, .serif-font {
-            font-family: 'Playfair Display', serif;
+        .card {
+            max-width: 420px;
+            padding: 2.5rem;
+            background: #1e293b;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155;
         }
-        ::-webkit-scrollbar {
-            width: 8px;
+        h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0 0 0.75rem 0;
+            color: #f1f5f9;
         }
-        ::-webkit-scrollbar-track {
-            background: #021c14;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #0c5c46;
-            border-radius: 4px;
-        }
-        .glass-card {
-            background: rgba(6, 56, 43, 0.45);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-        }
-        .glass-modal {
-            background: rgba(2, 28, 20, 0.92);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(245, 158, 11, 0.4);
-        }
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20%, 60% { transform: translateX(-8px); }
-            40%, 80% { transform: translateX(8px); }
-        }
-        .shake {
-            animation: shake 0.4s ease-in-out;
-        }
-        .jungle-bg {
-            background: linear-gradient(135deg, #021c14 0%, #06382b 50%, #0c5c46 100%);
+        p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
         }
     </style>
 </head>
-<body class="jungle-bg text-emerald-100 min-h-screen relative overflow-x-hidden">
-
-    <div id="password-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-opacity duration-500">
-        <div class="glass-modal rounded-3xl p-8 max-w-md w-full shadow-2xl relative overflow-hidden transform transition-all duration-500 scale-100">
-            <!-- Decorative Jungle Glow -->
-            <div class="absolute -top-24 -right-24 w-48 h-48 bg-amber-500/20 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
-
-            <div class="text-center mb-6">
-                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-900/80 text-amber-400 mb-4 border border-amber-500/30 shadow-lg">
-                    <i class="fa-solid fa-shield-cat text-2xl"></i>
-                </div>
-                <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Sanctuary Clearance</h2>
-                <p class="text-emerald-300 text-sm">Enter the access credential to explore the archive.</p>
-            </div>
-
-            <form id="password-form" onsubmit="handleLogin(event)" class="space-y-4">
-                <div class="relative">
-                    <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-emerald-400">
-                        <i class="fa-solid fa-lock"></i>
-                    </span>
-                    <input type="password" id="password-input" placeholder="Enter password..." class="w-full pl-11 pr-4 py-3.5 bg-emerald-950/60 border border-emerald-700/50 rounded-xl text-white placeholder-emerald-500 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all text-sm" required autocomplete="current-password">
-                </div>
-                <div id="error-message" class="hidden text-rose-400 text-xs text-center font-medium bg-rose-950/40 border border-rose-800/50 py-2 rounded-lg">
-                    <i class="fa-solid fa-triangle-exclamation mr-1"></i> Incorrect password. Please try again.
-                </div>
-                <button type="submit" class="w-full py-3.5 px-6 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-emerald-950 font-bold rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center space-x-2">
-                    <span>Unlock Sanctuary Archive</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </form>
-        </div>
+<body>
+    <div class="card">
+        <h1>Access Restricted</h1>
+        <p>The website you want to access has been removed from the internet.</p>
     </div>
-
-    <div id="main-content" class="hidden opacity-0 transition-opacity duration-700">
-        
-        <!-- Top Disclaimer Banner -->
-        <div class="bg-amber-500/10 border-b border-amber-500/20 py-2.5 px-4 text-center text-xs md:text-sm text-amber-300 flex items-center justify-center space-x-2 shadow-inner">
-            <i class="fa-solid fa-triangle-exclamation text-amber-400 animate-pulse"></i>
-            <span><strong>DISCLAIMER:</strong> This website is designed strictly and solely for entertainment purposes.</span>
-        </div>
-
-        <!-- Navigation Header -->
-        <header class="max-w-5xl mx-auto px-4 pt-8 pb-4 flex flex-col sm:flex-row items-center justify-between border-b border-emerald-800/40 mb-8">
-            <div class="flex items-center space-x-3 mb-4 sm:mb-0">
-                <div class="w-10 h-10 rounded-xl bg-emerald-800/80 border border-amber-500/40 flex items-center justify-center text-amber-400 shadow-lg">
-                    <i class="fa-solid fa-paw"></i>
-                </div>
-                <div>
-                    <h1 class="text-xl md:text-2xl font-bold text-white tracking-wide">WildRealm Archive</h1>
-                    <p class="text-xs text-emerald-400">Conservation Expedition Records</p>
-                </div>
-            </div>
-            <div class="flex items-center space-x-3">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-900/80 border border-emerald-700/50 text-emerald-300">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-2"></span>
-                    Secure Access Active
-                </span>
-                <button onclick="lockScreen()" title="Lock Sanctuary" class="p-2 rounded-xl bg-emerald-900/60 hover:bg-emerald-800 border border-emerald-700/50 text-emerald-300 hover:text-white transition-all">
-                    <i class="fa-solid fa-lock-open text-sm"></i>
-                </button>
-            </div>
-        </header>
-
-        <!-- Main Content Area -->
-        <main class="max-w-4xl mx-auto px-4 pb-16 space-y-8">
-            
-            <!-- Hero Title Card -->
-            <section class="glass-card rounded-3xl p-6 md:p-10 shadow-2xl relative overflow-hidden text-center">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
-                
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-                    <i>THEVINDU</i> Pandemic
-                </h1>
-
-                <div class="relative inline-block mb-6 group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-emerald-600 rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3lAx9ulVq-Kr660cHceKwcw4xkdl-KBPgvcGFmWMW0Q&s=10" alt="stpo-post" width="200px" class="relative rounded-xl shadow-xl mx-auto border border-amber-500/30 transform transition-all duration-300 group-hover:scale-105 object-cover">
-                </div>
-
-                <div class="glass-card rounded-2xl p-6 md:p-8 text-left text-emerald-100 text-base md:text-lg leading-relaxed shadow-lg border border-emerald-700/40 max-w-3xl mx-auto space-y-4">
-                    <p>
-                        Thevindu <i>MADA</i>goda also known as in scientifically <i>Gorilla thevimada</i> has diagnosed with some disorders including :
-                    </p>
-                    <ul class="list-disc list-inside space-y-2 text-emerald-200 pl-2">
-                        <li>pushing people on staircase</li>
-                        <li>trying to retard disas</li>
-                        <li>trying to get attention</li>
-                    </ul>
-                    <p class="pt-2">
-                        Here, this person has been identified as <i><strong><u>VERY VERY DANGEROUS</u></strong></i> to the ordinary. This page highlights what ordinary can do to prevent his actions in reality. His classmates found that <i>Commizina Gorilina</i> may be his MOTHER.
-                    </p>
-                </div>
-
-                <div class="mt-6 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200 font-medium text-sm md:text-base max-w-3xl mx-auto shadow-md">
-                    <p><strong><i>On average he annoys more than ONE MILLION people on the planet earth and to be honest ONE TRILLION people in the whole universe on 1 day</i></strong></p>
-                </div>
-            </section>
-
-            <!-- Data Table Section -->
-            <section class="glass-card rounded-3xl p-6 md:p-8 shadow-2xl overflow-hidden border border-emerald-700/40">
-                <div class="overflow-x-auto">
-                    <table class="w-full border-collapse text-left text-sm md:text-base">
-                        <caption>Symptoms</caption>
-                        <thead>
-                            <tr>
-                                <th class="p-4 bg-emerald-900/90 text-amber-400 font-bold border-b border-emerald-700/60 rounded-tl-xl">Common symptoms</th>
-                                <th class="p-4 bg-emerald-900/90 text-amber-400 font-bold border-b border-emerald-700/60 rounded-tr-xl">Less but serious</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="hover:bg-emerald-800/20 transition-colors">
-                                <td class="p-4 border-b border-emerald-800/40 align-top">
-                                    <ul class="list-disc list-inside space-y-2 text-emerald-200">
-                                        <li>Running</li>
-                                        <li>Always talking</li>
-                                        <li>Black niger</li>
-                                        <li>Shows off his middle finger</li>
-                                    </ul>
-                                </td>
-                                <td class="p-4 border-b border-emerald-800/40 align-top">
-                                    <ul class="list-disc list-inside space-y-2 text-emerald-200">
-                                        <li>Wants to kill others</li>
-                                        <li>Always shouting and screaming</li>
-                                        <li>Says "HARITH ASSHOLE"</li>
-                                        <li>Can be found close to Disas</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" class="p-6 bg-emerald-950/40 rounded-b-xl">
-                                    <div class="font-semibold text-amber-300 mb-3 flex items-center space-x-2">
-                                        <i class="fa-solid fa-shield-heart text-amber-400"></i>
-                                        <span>How to prevent:</span>
-                                    </div>
-                                    <ol class="list-decimal list-inside space-y-2 text-emerald-200 pl-2">
-                                        <li>Killing</li>
-                                        <li>Asking help from Mr. Janakantha</li>
-                                        <li>Call "Mama Lal Dissanayake"</li>
-                                        <li>If possible without raising blood pressure of Mr. Kamal scream as "Senaka"</li>
-                                        <li>Call 119 (or 911 if in USA)</li>
-                                        <li>Email to Trump on his behaviour as he is his BROTHER</li>
-                                    </ol>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- External Link Callout -->
-            <section class="glass-card rounded-2xl p-6 text-center shadow-lg border border-emerald-700/40">
-                <h3 class="text-xl md:text-2xl font-bold text-white mb-2">
-                    For more info visit: <a href="thevindu.pissek" class="text-amber-400 hover:text-amber-300 underline transition-colors">Thevindu Prevention Task Force Worldwide</a>
-                </h3>
-            </section>
-
-            <!-- Disclaimer Section -->
-            <section class="glass-card rounded-2xl p-6 bg-amber-500/5 border border-amber-500/30 text-center space-y-2">
-                <div class="flex items-center justify-center space-x-2 text-amber-400 font-bold text-sm uppercase tracking-wider">
-                    <i class="fa-solid fa-circle-exclamation"></i>
-                    <span>Disclaimer Notice</span>
-                </div>
-                <p class="text-xs md:text-sm text-emerald-200 max-w-2xl mx-auto leading-relaxed">
-                    This website and its contents are designed strictly and solely for entertainment purposes. All text, descriptions, and lists are entirely satirical and fictional.
-                </p>
-            </section>
-
-        </main>
-
-        <!-- Footer -->
-        <footer class="max-w-4xl mx-auto px-4 pb-12 text-center text-xs md:text-sm text-emerald-400 border-t border-emerald-800/40 pt-8 space-y-3">
-            <p class="bg-transparent shadow-none p-0">This is copyrighted by The Extra-Special Thevindu Prevention Task Force Worldwide. Contact us via Sri Lanka (+94 707049015) or USA (+1 2569 2563 2987) telephone numbers.</p>
-            <p class="text-emerald-500 font-medium">WildRealm Sanctuary Expedition Archive &copy; 2026. All rights reserved.</p>
-        </footer>
-
-    </div>
-
-    <script>
-        const DEFAULT_PASSWORD = "Class11-9";
-
-        function handleLogin(event) {
-            event.preventDefault();
-            const input = document.getElementById('password-input').value;
-            const modal = document.getElementById('password-modal');
-            const mainContent = document.getElementById('main-content');
-            const errorMessage = document.getElementById('error-message');
-            const modalBox = modal.querySelector('div');
-
-            if (input === DEFAULT_PASSWORD) {
-                // Success animation
-                modal.style.opacity = '0';
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                    mainContent.classList.remove('hidden');
-                    setTimeout(() => {
-                        mainContent.classList.add('opacity-100');
-                    }, 50);
-                }, 400);
-                sessionStorage.setItem('wildlife_auth', 'true');
-            } else {
-                // Error animation and feedback
-                errorMessage.classList.remove('hidden');
-                modalBox.classList.add('shake');
-                setTimeout(() => {
-                    modalBox.classList.remove('shake');
-                }, 400);
-            }
-        }
-
-        function lockScreen() {
-            sessionStorage.removeItem('wildlife_auth');
-            const modal = document.getElementById('password-modal');
-            const mainContent = document.getElementById('main-content');
-            const passwordInput = document.getElementById('password-input');
-            const errorMessage = document.getElementById('error-message');
-
-            passwordInput.value = '';
-            errorMessage.classList.add('hidden');
-            mainContent.classList.remove('opacity-100');
-            mainContent.classList.add('hidden');
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.style.opacity = '1';
-            }, 50);
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            if (sessionStorage.getItem('wildlife_auth') === 'true') {
-                const modal = document.getElementById('password-modal');
-                const mainContent = document.getElementById('main-content');
-                modal.classList.add('hidden');
-                modal.style.opacity = '0';
-                mainContent.classList.remove('hidden');
-                mainContent.classList.add('opacity-100');
-            }
-        });
-    </script>
 </body>
 </html>
